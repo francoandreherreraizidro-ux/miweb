@@ -1,0 +1,57 @@
+* { box-sizing: border-box; }
+:root {
+  color-scheme: light;
+  --ink: #17202a;
+  --muted: #65727e;
+  --line: #d7e1e8;
+  --paper: #f7fbff;
+  --accent: #e85d3f;
+  --accent-deep: #b9402a;
+  --panel: #ffffff;
+}
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  overflow-x: hidden;
+  background: #e8f0f5;
+  color: var(--ink);
+  font-family: 'Manrope', sans-serif;
+}
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(135deg, rgba(255,255,255,.85), transparent 46%), radial-gradient(circle at 85% 12%, rgba(232,93,63,.12), transparent 28%);
+  content: '';
+}
+.app-shell { width: min(1120px, calc(100% - 40px)); }
+.topbar { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+.brand-mark { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 11px; background: var(--ink); color: #fff; font-weight: 800; letter-spacing: -.08em; }
+.topbar-copy { display: grid; gap: 3px; flex: 1; color: var(--muted); font: 400 11px 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .04em; }
+.eyebrow { color: var(--ink); font-weight: 500; }
+.icon-button { width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 10px; background: rgba(255,255,255,.7); color: var(--ink); cursor: pointer; font-size: 16px; transition: .2s ease; }
+.icon-button:hover { border-color: var(--accent); color: var(--accent-deep); transform: translateY(-2px); }
+.game-panel { position: relative; overflow: hidden; border: 1px solid rgba(215,225,232,.9); border-radius: 18px; background: var(--paper); box-shadow: 0 24px 60px rgba(44,67,84,.12); }
+canvas { display: block; width: 100%; height: auto; aspect-ratio: 8 / 3; }
+.screen-overlay { position: absolute; inset: 0; z-index: 2; display: grid; place-content: center; justify-items: center; padding: 24px; background: rgba(247,251,255,.82); text-align: center; opacity: 0; pointer-events: none; transition: opacity .3s ease; }
+.screen-overlay.is-visible { opacity: 1; pointer-events: auto; }
+.kicker { margin: 0 0 10px; color: var(--accent-deep); font: 500 11px 'DM Mono', monospace; letter-spacing: .13em; text-transform: uppercase; }
+h1, h2 { margin: 0; font-size: clamp(42px, 7vw, 76px); line-height: .95; letter-spacing: -.08em; }
+h1 em { color: var(--accent); font-style: normal; }
+h2 { font-size: clamp(32px, 5vw, 58px); }
+.screen-description { margin: 20px 0 24px; color: var(--muted); font-size: 15px; line-height: 1.6; }
+.primary-button { border: 0; border-radius: 9px; padding: 13px 18px; background: var(--accent); color: #fff; cursor: pointer; font: 700 13px 'Manrope', sans-serif; box-shadow: 0 8px 18px rgba(232,93,63,.23); transition: .2s ease; }
+.primary-button span { display: inline-block; margin-left: 10px; font-size: 17px; transition: transform .2s ease; }
+.primary-button:hover { background: var(--accent-deep); transform: translateY(-2px); }
+.primary-button:hover span { transform: translateX(3px); }
+.final-score-label { display: flex; gap: 10px; align-items: baseline; margin: 18px 0 24px; color: var(--muted); font: 12px 'DM Mono', monospace; text-transform: uppercase; }
+.final-score-label strong { color: var(--ink); font-size: 23px; }
+.pause-badge { position: absolute; top: 22px; right: 24px; padding: 7px 10px; border-radius: 6px; background: var(--ink); color: #fff; font: 500 10px 'DM Mono', monospace; letter-spacing: .1em; opacity: 0; transform: translateY(-5px); transition: .2s ease; }
+.pause-badge.is-visible { opacity: 1; transform: translateY(0); }
+.controls-bar { display: flex; gap: 25px; align-items: center; padding: 15px 2px; color: var(--muted); font: 11px 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .04em; }
+.control-key { display: inline-grid; min-width: 28px; height: 23px; margin-right: 5px; padding: 0 6px; place-items: center; border: 1px solid var(--line); border-radius: 5px; background: var(--panel); color: var(--ink); font-size: 10px; }
+.status-dot { margin-left: auto; display: flex; align-items: center; gap: 7px; }
+.status-dot span { width: 6px; height: 6px; border-radius: 50%; background: #4cb782; box-shadow: 0 0 0 4px rgba(76,183,130,.12); }
+@media (max-width: 600px) { .app-shell { width: calc(100% - 24px); } .game-panel { border-radius: 12px; } .controls-bar { gap: 12px; flex-wrap: wrap; } .status-dot { margin-left: 0; width: 100%; } .screen-description { font-size: 13px; } }

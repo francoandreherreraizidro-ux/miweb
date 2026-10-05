@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dino Run, un videojuego 2D modular desarrollado con Canvas y JavaScript.">
+  <title>Dino Run | Canvas Game</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand-mark" aria-label="Dino Run">DR</div>
+      <div class="topbar-copy"><span class="eyebrow">Canvas arcade / 01</span><span id="audio-status">Audio listo al iniciar</span></div>
+      <button id="pause-button" class="icon-button" type="button" aria-label="Pausar partida">Ⅱ</button>
+    </header>
+
+    <section class="game-panel" aria-label="Área de juego">
+      <canvas id="game-canvas" width="960" height="360"></canvas>
+      <div id="pause-badge" class="pause-badge">PAUSA</div>
+      <div id="menu-screen" class="screen-overlay is-visible">
+        <p class="kicker">Aventura de una tecla</p>
+        <h1>Dino <em>Run</em></h1>
+        <p class="screen-description">Corre más lejos. Salta más limpio.<br>Que nada interrumpa el ritmo.</p>
+        <button id="play-button" class="primary-button" type="button">Jugar <span>→</span></button>
+      </div>
+      <div id="game-over-screen" class="screen-overlay">
+        <p class="kicker">Fin de la carrera</p>
+        <h2>GAME OVER</h2>
+        <p class="final-score-label">Puntuación <strong id="game-over-score">00000</strong></p>
+        <button id="replay-button" class="primary-button" type="button">Jugar de nuevo <span>↻</span></button>
+      </div>
+    </section>
+
+    <footer class="controls-bar">
+      <div><span class="control-key">SPACE</span><span class="control-key">↑</span> saltar</div>
+      <div><span class="control-key">P</span> pausa</div>
+      <div class="status-dot"><span></span> sesión local</div>
+    </footer>
+  </main>
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
